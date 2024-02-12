@@ -81,6 +81,26 @@ class MainMapController extends GetxController {
     )));
   }
 
+
+  // To animated and track live location for this marker and updated it in map
+  void animateLivePositionMarker(LatLng latLng) async {
+    final newMarker = Marker(
+      icon: BitmapDescriptor.defaultMarkerWithHue(
+        BitmapDescriptor.hueYellow,
+      ),
+      markerId: const MarkerId("live-position"),
+      position: latLng,
+    );
+
+    markers['live-position'] = newMarker;
+
+    mapDefaultController = await googleMapController.future;
+    await mapDefaultController.animateCamera(CameraUpdate.newCameraPosition(CameraPosition(
+      target: latLng,
+      zoom: 14.4746,
+    )));
+  }
+
   // This function to get Polyline Information so we can draw it on the Map
   Future<void> getPolylineInformation(LatLng originLocation, LatLng destinationLocation) async {
     PolylinePoints polylinePoints = PolylinePoints();
