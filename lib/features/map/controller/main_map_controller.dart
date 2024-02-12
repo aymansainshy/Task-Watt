@@ -72,6 +72,7 @@ class MainMapController extends GetxController {
     markers['destination'] = newMarker;
 
     resetOldLocations();
+
     await getPolylineInformation(markers['origin']!.position, markers['destination']!.position);
 
     mapDefaultController = await googleMapController.future;
@@ -80,7 +81,6 @@ class MainMapController extends GetxController {
       zoom: 14.4746,
     )));
   }
-
 
   // To animated and track live location for this marker and updated it in map
   void animateLivePositionMarker(LatLng latLng) async {

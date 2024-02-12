@@ -23,7 +23,7 @@ class OriginAndDestinationWidget extends StatelessWidget {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
                     children: [
@@ -40,7 +40,7 @@ class OriginAndDestinationWidget extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(8)),
                             border: Border.all(
-                              width: 1,
+                              width: 1.5,
                               color: Colors.black26,
                             ),
                           ),
@@ -91,17 +91,26 @@ class OriginAndDestinationWidget extends StatelessWidget {
                     ],
                   ),
                   // const SizedBox(height: 15),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10),
-                    child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10, top: 2),
-                    child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10, top: 2),
+                      child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                    ),
                   ),
-                  const Padding(
-                    padding: EdgeInsets.only(left: 10, top: 2),
-                    child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                  const Align(
+                    alignment: Alignment.centerLeft,
+                    child: Padding(
+                      padding: EdgeInsets.only(left: 10, top: 2),
+                      child: CircleAvatar(backgroundColor: Colors.black54, radius: 1.5),
+                    ),
                   ),
 
                   Row(
@@ -119,7 +128,7 @@ class OriginAndDestinationWidget extends StatelessWidget {
                           decoration: BoxDecoration(
                             borderRadius: const BorderRadius.all(Radius.circular(8)),
                             border: Border.all(
-                              width: 1,
+                              width: 1.5,
                               color: Colors.black26,
                             ),
                           ),
@@ -209,7 +218,11 @@ class OriginAndDestinationWidget extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         const Icon(Icons.social_distance),
-                                        Text(mainMapController.polylineResult.distance ?? ""),
+                                        Text(
+                                          mainMapController.polylineResult.distance ?? "",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.clip,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -229,7 +242,11 @@ class OriginAndDestinationWidget extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         const Icon(Icons.drive_eta_outlined),
-                                        Text(mainMapController.polylineResult.duration ?? ""),
+                                        Text(
+                                          mainMapController.polylineResult.duration ?? "",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ],
                                     ),
                                   ),
@@ -249,7 +266,11 @@ class OriginAndDestinationWidget extends StatelessWidget {
                                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                                       children: [
                                         const Icon(Icons.monetization_on_outlined),
-                                        Text("${(mainMapController.totalCost).toStringAsFixed(2)} AED"),
+                                        Text(
+                                          "${(mainMapController.totalCost).toStringAsFixed(2)} AED",
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ],
                                     ),
                                   ),

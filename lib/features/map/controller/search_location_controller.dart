@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:geocoding/geocoding.dart';
 import 'package:get/get.dart';
 import 'package:task_watt/features/map/models/route_pridection.dart';
@@ -12,9 +10,8 @@ class SearchLocationController extends GetxController {
 
   List<Prediction> get predictions => _predictions.value;
 
-
   // This function will return the list of predictions places for the entered text,
-  void getPlacesFromText(String text) async {
+  void getPredictionPlacesFromSearch(String text) async {
     final predictionResponse = await _mapRepository.getPlacesFromText(text);
     _predictions.value = predictionResponse.predictions;
   }

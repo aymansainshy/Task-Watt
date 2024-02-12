@@ -58,7 +58,7 @@ class _CustomSearchBarState extends State<CustomSearchBar> {
                   },
                   validator: (value) {},
                   onChanged: (value) {
-                    searchLocationController.getPlacesFromText(value);
+                    searchLocationController.getPredictionPlacesFromSearch(value);
                   },
                   onSaved: (value) {},
                 ),

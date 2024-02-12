@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task_watt/di.dart' as injector;
 import 'package:task_watt/features/auth/views/login_view.dart';
+import 'package:task_watt/features/map/views/main_map_view.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

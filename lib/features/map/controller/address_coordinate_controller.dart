@@ -25,6 +25,22 @@ class AddressCoordinateController extends GetxController {
 
   DestinationAddressStatus get destinationAddressStatus => _destinationAddressStatus.value;
 
+  // To setOriginAddress directly for another address
+  void setOriginAddress(String newAddress) async {
+    _originAddressStatus(OriginAddressStatus.loading);
+    await Future.delayed(const Duration(milliseconds: 100));
+    _originAddress(newAddress);
+    _originAddressStatus(OriginAddressStatus.success);
+  }
+
+  // To setDestinationAddress directly for another address
+  void setDestinationAddress(String newAddress) async {
+    _destinationAddressStatus(DestinationAddressStatus.loading);
+    await Future.delayed(const Duration(milliseconds: 100));
+    _destinationAddress(newAddress);
+    _destinationAddressStatus(DestinationAddressStatus.success);
+  }
+
   // To get String address fom LatLan for started location
   Future<void> fetchOriginAddress(LatLng latLng) async {
     try {

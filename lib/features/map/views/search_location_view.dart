@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -81,16 +82,15 @@ class _SearchLocationViewState extends State<SearchLocationView> {
                         onPressed: () async {
                           Get.back();
                           Get.back();
-                          final location = await searchLocationController
-                              .getLatLanFromAddress(searchLocationController.predictions[i]);
+                          final location = await searchLocationController.getLatLanFromAddress(searchLocationController.predictions[i]);
 
                           if (widget.isOriginDestination) {
-                            addressCoordinateController
-                                .fetchOriginAddress(LatLng(location.latitude, location.longitude));
+                            addressCoordinateController.setOriginAddress(searchLocationController.predictions[i].description);
+                            //addressCoordinateController.fetchOriginAddress(LatLng(location.latitude, location.longitude));
                             mainMapController.addOriginMarker(LatLng(location.latitude, location.longitude));
                           } else {
-                            addressCoordinateController
-                                .fetchDestinationAddress(LatLng(location.latitude, location.longitude));
+                            addressCoordinateController.setDestinationAddress(searchLocationController.predictions[i].description);
+                            // addressCoordinateController.fetchDestinationAddress(LatLng(location.latitude, location.longitude));
                             mainMapController.addDestinationMarker(LatLng(location.latitude, location.longitude));
                           }
                         },

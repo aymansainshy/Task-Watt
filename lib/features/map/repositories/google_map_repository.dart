@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:task_watt/config/app_config.dart';
 import 'package:task_watt/core/api/dio_client.dart';
 import 'package:task_watt/core/api/network_result.dart';
+import 'package:task_watt/features/map/models/direction.dart';
 import 'package:task_watt/features/map/models/route_pridection.dart';
 
 class GoogleMapRepository {
@@ -36,24 +38,25 @@ class GoogleMapRepository {
 //   }
 // }
 
-// Future<Directions> getDirection(LatLng originLocation, LatLng selectedLocation) async {
-//   const String _directionsUrl = 'https://maps.googleapis.com/maps/api/directions/json?';
-//
-//   try {
-//     final networkResult = await _dio.get(_directionsUrl, queryParameters: {
-//       "origin": '${originLocation.latitude},${originLocation.longitude}',
-//       "destination": '${selectedLocation.latitude},${selectedLocation.longitude}',
-//       "key": AppConfig.googleMapKey,
-//     });
-//
-//     late Directions directions;
-//     if (networkResult is NetworkResultSuccess) {
-//       directions = Directions.fromMap(networkResult.data);
-//     }
-//
-//     return directions;
-//   } catch (e) {
-//     throw e.toString();
-//   }
-// }
+  // To Draw Polyline from Url
+  Future<Directions> getDirection(LatLng originLocation, LatLng selectedLocation) async {
+    const String _directionsUrl = 'https://maps.googleapis.com/maps/api/directions/json?';
+
+    try {
+      final networkResult = await _dio.get(_directionsUrl, queryParameters: {
+        "origin": '${originLocation.latitude},${originLocation.longitude}',
+        "destination": '${selectedLocation.latitude},${selectedLocation.longitude}',
+        "key": AppConfig.googleMapKey,
+      });
+
+      late Directions directions;
+      if (networkResult is NetworkResultSuccess) {
+        directions = Directions.fromMap(networkResult.data);
+      }
+
+      return directions;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
 }
