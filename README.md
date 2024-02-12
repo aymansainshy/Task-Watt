@@ -1,8 +1,11 @@
 # task_watt
+Introduction<a name="introduction"></a>
+The Trip Tracker app is a Flutter application designed to track trips from one location to another. It provides a user-friendly interface for setting start and end locations, displays the route on Google Maps, and generates a trip summary with essential details. The application follows best practices and Flutter conventions for clean, readable, and maintainable code.
 
-A new Flutter project.
 
-## Getting Started
+
+
+
 
 This project is a starting point for a Flutter application.
 
